@@ -29,11 +29,11 @@ cap = cv2.VideoCapture(0)
 
 @counter
 def closed():
-  print "Eye Closed"
+  print("Eye Closed")
 
 
 def openeye():
-  print "Eye is Open"
+  print("Eye is Open")
 
 
 
@@ -61,7 +61,7 @@ while 1:
         else:
            closed()
            if closed.count == 3:
-               print "driver is sleeping"
+               print("driver is sleeping")
                sound()
 
 
