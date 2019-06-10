@@ -8,7 +8,7 @@ lastsave = 0
 
 def counter(func):
     @wraps(func)
-    def tmp(*args, **kwargs):
+    def tmp(*args, **kwargs):#*args 为不定长元组参数 **kwargs为不定长字典参数
         tmp.count += 1
         global lastsave
         if time.time() - lastsave > 3:
@@ -19,7 +19,7 @@ def counter(func):
     tmp.count = 0
     return tmp
 
-
+#级联分类器，基于机器学习，通过大量的样本训练得到的分类器
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
@@ -29,11 +29,11 @@ cap = cv2.VideoCapture(0)
 
 @counter
 def closed():
-  print "Eye Closed"
+  print("Eye Closed")
 
 
 def openeye():
-  print "Eye is Open"
+  print("Eye is Open")
 
 
 
@@ -54,14 +54,14 @@ while 1:
 
         eyes = eye_cascade.detectMultiScale(roi_gray)
 
-        if eyes is not ():
+        if eyes is not (): #is not 判断前后两个变量是否处于同一地址  （）表示空的元组类型
             for (ex, ey, ew, eh) in eyes:
                 cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
                 openeye()
         else:
            closed()
            if closed.count == 3:
-               print "driver is sleeping"
+               print("driver is sleeping")
                sound()
 
 
