@@ -5,7 +5,7 @@ import time
 
 lastsave = 0
 
-
+#函数修饰器，传入函数名作为参数，在
 def counter(func):
     @wraps(func)
     def tmp(*args, **kwargs):#*args 为不定长元组参数 **kwargs为不定长字典参数
